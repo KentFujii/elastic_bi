@@ -1,12 +1,16 @@
 version: '2'
 services:
-  beats:
-    build: ./beats
+  # beats:
+  #   build: ./beats
   elasticsearch:
-    build: ./logstash
-  kibana: ./kibana
-    build: ./kibana
-  logstash:
-    build: ./logstash
-    command: bin/logstash -f pipeline/logstash.conf
+    build: ./elasticsearch
+    network_mode: "host"
+    ports:
+      - 9200:9200
+    command: bin/elasticsearch
+  # kibana: ./kibana
+  #   build: ./kibana
+  # logstash:
+  #   build: ./logstash
+  #   command: bin/logstash -f pipeline/logstash.conf
 

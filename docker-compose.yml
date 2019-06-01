@@ -1,7 +1,5 @@
 version: '2'
 services:
-  # beats:
-  #   build: ./beats
   elasticsearch:
     build: ./elasticsearch
     ports:

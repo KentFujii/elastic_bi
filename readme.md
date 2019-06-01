@@ -1,23 +1,12 @@
 # elastic_bi
 
-elastic-stackを用いたBI環境です
+- logstash
+- elasticsearch
 
-https://www.docker.elastic.co/#
+## gist
 
-```
-docker-compose build
-```
+(logFile|structuredDataFile) -> logstash -> elasticsearch
 
-## beats
+## memo
 
-## elasticsearch
-
-```
-curl http://localhost:9200/?pretty
-curl http://localhost:9200/logstash-*/_search?pretty
-curl http://localhost:9200/logstash-*/_count
-```
-
-## kibana
-
-## logstash
+https://github.com/KentFujii/loghub

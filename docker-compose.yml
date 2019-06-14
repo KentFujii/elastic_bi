@@ -1,18 +1,17 @@
 version: '2'
+volumes:
+  unstructured_data:
+  semistructured_data:
 services:
+  logstash:
+    build: ./logstash
+    volumes:
+      -
+    command: bin/logstash -f pipeline/logstash.conf
+    depends_on:
+      - elasticsearch
   elasticsearch:
     build: ./elasticsearch
     ports:
       - 9200:9200
     command: bin/elasticsearch
-  kibana:
-    build: ./kibana
-    ports:
-      - 5601:5601
-    depends_on:
-      - elasticsearch
-  logstash:
-    build: ./logstash
-    command: bin/logstash -f pipeline/logstash.conf
-    depends_on:
-      - elasticsearch
